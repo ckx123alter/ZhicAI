@@ -1,0 +1,69 @@
+# Local credentials and private keys
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Local demo databases and journals; keep data/*.xlsx as source fixtures
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+
+# Python environments, caches, and reports
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# Frontend dependencies and generated output
+node_modules/
+dist/
+build/
+.npm-cache/
+*.tsbuildinfo
+/frontend/src/*.vue.js
+/frontend/src/data.js
+/frontend/src/demoConfig.js
+/frontend/src/main.js
+/frontend/src/store.js
+
+# Personal local launcher (double-click startup), not part of the shared repo
+/启动知财.cmd
+/frontend/start-services.ps1
+
+# Local working notes (not part of the shared repo)
+/完整技术方案.md
+/本地验收记录-2026-11-02.md
+
+# Cloudflare local dependency install and Wrangler state
+/cloudflare/
+.wrangler/
+
+# Local runs, screenshots, logs, and editor files
+/.runtime/
+/.test-runs/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

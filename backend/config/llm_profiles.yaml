@@ -1,0 +1,24 @@
+deepseek-v4-pro: &deepseek_v4_pro
+  provider: deepseek
+  model: deepseek-v4-pro
+  base_url: https://api.deepseek.com
+  api_key_env: DEEPSEEK_API_KEY
+  timeout: 60
+  method: function_calling
+  thinking: disabled
+  max_tokens: 4096
+deepseek: *deepseek_v4_pro
+qwen:
+  provider: openai_compatible
+  model: <实际模型名>
+  base_url: <实际接口地址>
+  api_key_env: ZHICAI_QWEN_API_KEY
+  timeout: 30
+  method: function_calling
+glm:
+  provider: openai_compatible
+  model: <实际模型名>
+  base_url: <实际接口地址>
+  api_key_env: ZHICAI_GLM_API_KEY
+  timeout: 30
+  method: function_calling
