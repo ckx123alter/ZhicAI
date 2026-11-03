@@ -144,9 +144,9 @@ def test_high_risk_transfer_requires_challenge(account):
     # no token -> blocked before any write
     blocked = account.post(f"/api/operations/{preview['preview_id']}/confirm", json={'confirmed': True})
     assert blocked.status_code == 403, blocked.text
-    # wrong password -> rejected
+    # wrong password -> rejected（403 而非 401，避免前端当作“登录已过期”整页刷新）
     wrong = account.post(f"/api/operations/{preview['preview_id']}/challenge", json={'password': 'wrong-password'})
-    assert wrong.status_code == 401
+    assert wrong.status_code == 403
     # correct password issues a single-use token
     ch = account.post(f"/api/operations/{preview['preview_id']}/challenge", json={'password': 'password-123'})
     assert ch.status_code == 200, ch.text

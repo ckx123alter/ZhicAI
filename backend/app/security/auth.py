@@ -17,7 +17,7 @@ from ..repositories import legacy as db
 
 COOKIE = "zhicai_session"
 ACCOUNT_ID = db.DEMO_ACCOUNT_ID
-SESSION_HOURS = 12
+SESSION_HOURS = 2
 router = APIRouter(prefix="/api/auth")
 
 # Login failure throttling: keyed by (username, client address), in-memory only.

@@ -67,3 +67,9 @@ build/
 Thumbs.db
 .idea/
 .vscode/
+
+# Private project reports
+/安全自评报告.md
+/安全自评报告.pdf
+/技术文档.md
+/技术文档.pdf

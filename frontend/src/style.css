@@ -24,6 +24,7 @@ input::-webkit-inner-spin-button{appearance:none}
 .panel-main{padding:55px 0 25px;transform:translateY(-18px)}
 .panel-main>.eyebrow{font-size:var(--font-body);letter-spacing:3px}
 h1{font-size:44px;line-height:1.45;letter-spacing:-1px;font-weight:500;margin-top:15px}
+.test-account{font-size:var(--font-meta);color:#7a879e;margin-top:14px;line-height:1.6}
 .panel-description{color:#7a879e;font-size:var(--font-body);margin:23px 0 32px;line-height:2.1}
 .demo-steps{border-top:1px solid #cdd5e2;margin-top:22px}
 .demo-steps button{padding:16px 2px;width:100%;justify-content:flex-start;border-bottom:1px solid #d7deea;font-size:var(--font-body);color:#68768c;transition:color .2s,transform .2s}

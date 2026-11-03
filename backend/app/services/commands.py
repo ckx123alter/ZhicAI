@@ -351,7 +351,8 @@ def issue_challenge(c, preview_id, user_id, password, account_id=db.DEMO_ACCOUNT
     user = c.execute("SELECT password_hash FROM local_users WHERE id=?", (user_id,)).fetchone()
     if user is None or not verify_password(password or "", user["password_hash"]):
         record_challenge_failure(key)
-        raise HTTPException(401, "身份验证未通过")
+        # 用 403 而非 401：401 在前端被当作“登录已过期”触发整页刷新，密码错误应就地提示。
+        raise HTTPException(403, "密码错误")
     clear_challenge_failures(key)
     token = secrets.token_urlsafe(32)
     c.execute("INSERT INTO transaction_challenges(id,preview_id,user_id,command_hash,token_hash,expires_at) VALUES (?,?,?,?,?,?)",

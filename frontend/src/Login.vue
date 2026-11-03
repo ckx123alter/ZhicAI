@@ -19,8 +19,11 @@ async function login(){
 <template>
  <main class="auth-page">
   <form class="auth-card" @submit.prevent="login">
-   <div class="auth-mark">知</div><h1>登录知财</h1><p>使用本地演示账户登录</p>
-   <label>用户名<input v-model.trim="username" autocomplete="username" required/></label>
+   <div class="auth-intro">
+    <div class="wordmark"><span class="brand-symbol">知</span><span class="brand-word">财</span></div>
+    <h1>登录</h1><p>使用测试账户登录</p>
+   </div>
+   <label>账号<input v-model.trim="username" autocomplete="username" required/></label>
    <label>密码<input v-model="password" type="password" autocomplete="current-password" required/></label>
    <p v-if="error" class="auth-error" role="alert">{{error}}</p>
    <button type="submit" :disabled="busy">{{busy?'正在登录…':'登录'}}</button>
@@ -30,7 +33,8 @@ async function login(){
 <style scoped>
 .auth-page{min-height:100vh;display:grid;place-items:center;background:#edf2f7;padding:20px;color:#173953;font-family:Arial,"Microsoft YaHei",sans-serif}
 .auth-card{background:#fff;width:min(100%,380px);padding:32px;border-radius:18px;box-shadow:0 14px 42px #17395318}
-.auth-mark{width:46px;height:46px;background:#173953;color:#fff;border-radius:12px;display:grid;place-items:center;font-size:23px}
+.auth-intro{text-align:center}
+.auth-card .wordmark{justify-content:center;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#172744}
 h1{font-size:23px;margin:20px 0 7px}p{font-size:13px;color:#66788c;margin:0 0 24px}
 label{display:block;margin:17px 0;font-size:13px}input{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #cad5df;border-radius:8px;font:inherit}
 button{width:100%;padding:13px;border:0;border-radius:9px;background:#173953;color:#fff;font-size:14px;cursor:pointer}
