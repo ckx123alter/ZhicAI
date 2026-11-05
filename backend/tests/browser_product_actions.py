@@ -21,11 +21,11 @@ with sync_playwright() as p:
     page.reload(wait_until='networkidle')
     expect(page.locator('.message.agent').last.locator('.message-action')).to_have_text(['查看理财产品','查看现金流预测'])
     page.get_by_role('button',name='查看理财产品',exact=True).click()
-    expect(page).to_have_url(base+'/#/wealth')
+    expect(page).to_have_url(base+'/wealth')
     expect(page.locator('.wealth-summary-bubble')).to_be_visible()
     page.goto(base,wait_until='networkidle')
     page.get_by_role('button',name='查看现金流预测',exact=True).click()
-    expect(page).to_have_url(base+'/#/me')
+    expect(page).to_have_url(base+'/me')
     expect(page.get_by_role('heading',name=re.compile(r'未来 \d+ 天现金流预测'))).to_be_visible()
     assert not errors,errors
     browser.close()

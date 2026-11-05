@@ -24,7 +24,7 @@ with sync_playwright() as playwright:
     assert confirmed.status == 200, confirmed.text()
     assert confirmed.json()['state']['riskLevel'] == 3
 
-    page.goto(base + '/#/wealth/product/O', wait_until='networkidle')
+    page.goto(base + '/wealth/product/O', wait_until='networkidle')
     expect(page.get_by_role('heading', name='产品详情')).to_be_visible()
     page.get_by_role('button', name='申购', exact=True).click()
     expect(page.get_by_role('heading', name='确认申购')).to_be_visible()

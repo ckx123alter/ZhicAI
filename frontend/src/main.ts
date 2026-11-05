@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import Login from './Login.vue'
 import Admin from './Admin.vue'
@@ -16,7 +16,10 @@ import './style.css'
 import { loadDemoData, type DemoData } from './data'
 import { initializeConversation, conversationHeaders } from './conversation'
 import { useBank, freshAccountState, readLegacyAccountState, setBackendInitialAccountState, type AccountState } from './store'
-const router = createRouter({history:createWebHashHistory(),routes:['/','/bills','/transactions','/wealth','/wealth/product/:productId','/risk-assessment','/transfer','/transfer/bank','/transfer/payees','/transfer/records','/me','/holdings'].map(path=>({path,component:{template:'<span />'}}))})
+if (window.location.pathname === '/' && window.location.hash.startsWith('#/')) {
+  window.history.replaceState(window.history.state, '', window.location.hash.slice(1) + window.location.search)
+}
+const router = createRouter({history:createWebHistory(),routes:['/','/bills','/transactions','/wealth','/wealth/product/:productId','/risk-assessment','/transfer','/transfer/bank','/transfer/payees','/transfer/records','/me','/holdings'].map(path=>({path,component:{template:'<span />'}}))})
 const app=createApp(App).use(createPinia()).use(router)
 for(const component of [Button,TabBar,TabBarItem,Popup,Input,Checkbox])app.component(component.name!,component)
 

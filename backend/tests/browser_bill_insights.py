@@ -28,7 +28,7 @@ with sync_playwright() as p:
     bubble.get_by_role('button',name='下一段',exact=True).click()
     expect(bubble.get_by_role('button',name='查看消费明细',exact=True)).to_be_visible()
     bubble.get_by_role('button',name='查看消费明细',exact=True).click()
-    expect(page).to_have_url(base+'/#/transactions')
+    expect(page).to_have_url(base+'/transactions')
     expect(page.get_by_role('heading',name='消费明细',exact=True)).to_be_visible()
     assert not errors,errors
     browser.close()

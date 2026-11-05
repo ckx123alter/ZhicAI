@@ -28,7 +28,7 @@ with sync_playwright() as p:
     expect(last.locator('.message-action')).to_have_text(['查看现金流预测'])
     page.reload(wait_until='networkidle')
     page.locator('.message.agent').last.get_by_role('button',name='查看现金流预测',exact=True).click()
-    expect(page).to_have_url(base+'/#/me')
+    expect(page).to_have_url(base+'/me')
     expect(page.get_by_role('heading',name=re.compile(r'未来 \d+ 天现金流预测'))).to_be_visible()
     assert not errors,errors
     browser.close()
